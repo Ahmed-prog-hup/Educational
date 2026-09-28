@@ -1,0 +1,3 @@
+@page
+@functions { public async Task OnGetAsync() => await HttpContext.SignOutAsync(Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme); }
+<meta http-equiv="refresh" content="0;url=/Account/Login" />
