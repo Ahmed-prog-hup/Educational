@@ -1,0 +1,4 @@
+@page
+@model Educational.Admin.Pages.Teachers.IndexModel
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
+<h1>Teachers</h1><table><tr><th>Name</th><th>Subject</th></tr>@foreach(var x in Model.Items){<tr><td>@x.FirstName @x.LastName</td><td>@x.Subject</td></tr>}</table>
