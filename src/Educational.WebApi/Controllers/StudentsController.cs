@@ -1,0 +1,4 @@
+using Educational.Application; using Microsoft.AspNetCore.Authorization; using Microsoft.AspNetCore.Mvc;
+namespace Educational.WebApi.Controllers;
+[ApiController,Route("api/students"),Authorize]
+public class StudentsController(IStudentService service):ControllerBase{[HttpGet]public Task<IReadOnlyList<StudentDto>> Get(CancellationToken ct)=>service.GetAllAsync(ct);[HttpPost]public Task<StudentDto> Post(StudentDto dto,CancellationToken ct)=>service.CreateAsync(dto,ct);[HttpDelete("{id:guid}")]public async Task<IActionResult> Delete(Guid id,CancellationToken ct)=>await service.DeleteAsync(id,ct)?NoContent():NotFound();}
